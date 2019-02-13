@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Rat = function(name, weight, speed, status) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+        this.sound = function(){
+            alert("Chit Chit");
+        };
+    };
+
+    var Cat = function(name, weight,maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.sound = function() {
+            alert("Meow Meow");
+        };
+        this.catchRat = function(rat){
+            if(this.maxSpeed > rat.speed) {
+                document.write("The cat named " + this.name + " catched the rat named "+rat.name);
+            }
+        };
+        this.eatRat = function(rat){
+            if(rat.status) {
+                this.weight += rat.weight;
+                document.write("<br/>Cat: Sorry little Rat hahahaha!")
+            }
+        };
+    };
+
+    var cat = new Cat("Tom", 10, 20);
+    var rat = new Rat("Cherry", 5, 10, true);
+    document.write("<br>Before eating, cat's weight: "+ cat.weight);
+    cat.catchRat(rat);
+    cat.eatRat(rat);
+    document.write("<br>After eating, cat's weight: " + cat.weight);
+</script>
+</body>
+</html>
